@@ -10,7 +10,7 @@
 #define MULTIPLICAR 4
 #define CUADRADO 5
 #define RAIZ 6
-#define ERR_R
+#define ERR_R 999
 
 //ciclo de vida de la variable
 //pasar las variables por valor
@@ -23,8 +23,7 @@ int dividir(double divisor, double denominador, double *result);
 int resta(double rest1, double rest2, double *result);
 int mult(double mult1, double mult2, double *result);
 int cua(double cua1, double *result);
-int raiz(double radicando, double *result);
-//variable global
+int raiz(double ra1, double *result);
 int main()
 {
     int menu = -1;
@@ -115,7 +114,7 @@ int main()
         {
             printf("\nIngresa el numero:");
             scanf("%lf",&n1);
-            printf("\nIngresa el segundo numero:");
+
 
             err = cua(n1,&r);
             if(err == ERR_OK)
@@ -143,11 +142,12 @@ int main()
             }
             else
             {
-              printf("\nError de raiz")
+              printf("\nError de raiz");
             }
         }
 
-    }
+
+}
     while(menu != SALIR);
 
 
@@ -188,24 +188,41 @@ int cua(double cua1, double *result)
     *result = pow(cua1,2);
     return ERR_OK;
 }
-int raiz(double rad1 = 0,rad2 = 0 double *result)
+int raiz(double ra1, double *result)
 {
-    if(radicando < 0)
+    if (result == 0)
     {
         return ERR_R;
     }
-    if (radicando == 0)
-        *result = 0.0;
-        return ERR_OK;
-        rad1 = rad 2;
-        while ((rad2 == (rad1/rad2)))
-        {
-            rad2 = 0.5 * ((rad1/rad2)+rad2)
-        }
 
+ if (ra1 == 0.0)
+ {
+     *result = 0;
+    return ERR_R;
+ }
+ if (ra1 < 0.0)
+ {
+   return ERR_R;
+ }
+
+
+double b = ra1;
+
+
+while (!(b == (ra1/ b)))
+{
+    double ra2 = b;
+b  = 0.5 * ((ra1/b)+b);
+if (b == ra2)
+{
+    break;
 }
 
+}
+*result =b;
+
+return ERR_OK;
 
 
-
+}
 
