@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1791488972 source:c:\users\amd\desktop\nueva carpeta\calculadrora\main.c
+	<stdio.h>
+	<stdlib.h>
+
